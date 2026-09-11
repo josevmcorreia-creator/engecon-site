@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ENGECon — Portal do Cliente</title>
+  
+  <!-- Fonte Montserrat -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  
+  <!-- Ícones Phosphor Icons -->
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    :root { 
+      --bg-deep-blue: #06223d;
+      --orange-brand: #ea6012;
+      --text-white: #ffffff;
+      --text-light-blue: #94b2d1;
+      --card-bg-blue: rgba(8, 38, 68, 0.75);
+    }
+
+    body {
+      width: 100vw;
+      min-height: 100vh;
+      background-color: var(--bg-deep-blue);
+      background-image: linear-gradient(115deg, rgba(5, 27, 49, 0.98) 0%, rgba(6, 34, 61, 0.92) 55%, rgba(7, 41, 74, 0.85) 100%), url('bg-predio.jpg');
+      background-size: cover;
+      background-position: center right;
+      background-repeat: no-repeat;
+      color: var(--text-white);
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    .bg-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+    }
+
+    .page-wrapper {
+      position: relative;
+      z-index: 2;
+      max-width: 1300px;
+      margin: 0 auto;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      padding: 2.5rem 2rem;
+    }
+
+    /* TOPO / HEADER */
+    .top-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 2.5rem;
+    }
+
+    .logo-svg {
+      height: 52px;
+      width: auto;
+      display: block;
+    }
+
+    .top-nav .nav-item {
+      color: #ffffff;
+      font-size: 0.75rem;
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+
+    .top-nav .nav-item:hover {
+      opacity: 0.8;
+    }
+
+    /* HERO CONTENT */
+    .hero-section {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      flex: 1;
+      padding-bottom: 2rem;
+    }
+
+    .hero-main {
+      max-width: 680px;
+    }
+
+    .tag-category {
+      color: var(--orange-brand);
+      font-size: 0.75rem;
+      font-weight: 800;
+      letter-spacing: 2.5px;
+      margin-bottom: 1.2rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .main-heading {
+      font-size: 4rem;
+      font-weight: 900;
+      line-height: 0.95;
+      color: #ffffff;
+      letter-spacing: -1px;
+      margin-bottom: 2rem;
+      text-transform: uppercase;
+    }
+
+    .main-heading .highlight {
+      color: var(--orange-brand);
+    }
+
+    .description {
+      font-size: 0.82rem;
+      font-weight: 600;
+      line-height: 1.6;
+      color: var(--text-light-blue);
+      letter-spacing: 0.5px;
+      margin-bottom: 2rem;
+      max-width: 580px;
+      text-transform: uppercase;
+    }
+
+    /* BOTÃO PRINCIPAL */
+    .cta-wrapper {
+      margin-bottom: 2.5rem;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background-color: var(--orange-brand);
+      color: #ffffff;
+      font-size: 0.8rem;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-decoration: none;
+      padding: 0.9rem 1.4rem;
+      border-radius: 6px;
+      box-shadow: 0 4px 15px rgba(234, 96, 18, 0.35);
+      transition: all 0.25s ease;
+    }
+
+    .btn-primary i {
+      font-size: 1.1rem;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      background-color: #d4530c;
+      box-shadow: 0 6px 20px rgba(234, 96, 18, 0.5);
+    }
+
+    /* RODAPÉ INFERIOR */
+    .hero-footer {
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+    }
+
+    .status-info {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.68rem;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      color: var(--text-light-blue);
+    }
+
+    .orange-dot {
+      width: 7px;
+      height: 7px;
+      background-color: var(--orange-brand);
+      border-radius: 50%;
+      display: inline-block;
+    }
+
+    .social-info a {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: #ffffff;
+      font-size: 0.75rem;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .social-info a i {
+      color: var(--orange-brand);
+      font-size: 1.2rem;
+    }
+
+    .social-info a:hover {
+      color: var(--orange-brand);
+    }
+
+    /* CARD DIREITO */
+    .hero-card-side {
+      padding-bottom: 2rem;
+    }
+
+    .side-card {
+      background-color: var(--card-bg-blue);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 8px;
+      padding: 1.8rem;
+      width: 310px;
+      backdrop-filter: blur(8px);
+    }
+
+    .card-tag {
+      display: block;
+      font-size: 0.65rem;
+      font-weight: 800;
+      letter-spacing: 2px;
+      color: var(--orange-brand);
+      margin-bottom: 0.6rem;
+    }
+
+    .card-title {
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: #ffffff;
+      letter-spacing: 0.5px;
+      margin-bottom: 0.5rem;
+    }
+
+    .card-desc {
+      font-size: 0.68rem;
+      font-weight: 600;
+      color: var(--text-light-blue);
+      line-height: 1.5;
+      letter-spacing: 0.5px;
+    }
+
+    /* RESPONSIVIDADE */
+    @media (max-width: 900px) {
+      .hero-section {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 3rem;
+      }
+
+      .main-heading {
+        font-size: 2.8rem;
+      }
+
+      .side-card {
+        width: 100%;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .page-wrapper {
+        padding: 1.5rem 1.2rem;
+      }
+
+      .main-heading {
+        font-size: 2.2rem;
+      }
+
+      .btn-primary {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="bg-overlay"></div>
+
+  <div class="page-wrapper">
+    
+    <!-- Topo / Header -->
+    <header class="top-header">
+      <div class="logo">
+        <!-- LOGO OFICIAL ENGECON DESENHADA DIRETAMENTE VIA SVG NATIVO -->
+        <svg class="logo-svg" viewBox="0 0 520 110" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <g transform="translate(10, 5)">
+            <!-- Arco 1 (Topo) -->
+            <path d="M 0 32 C 20 8, 50 8, 70 32 C 50 16, 20 16, 0 32 Z" fill="#ea6012"/>
+            <!-- Arco 2 -->
+            <path d="M 0 47 C 20 23, 50 23, 70 47 C 50 31, 20 31, 0 47 Z" fill="#ea6012"/>
+            <!-- Arco 3 -->
+            <path d="M 0 62 C 20 38, 50 38, 70 62 C 50 46, 20 46, 0 62 Z" fill="#ea6012"/>
+            <!-- Arco 4 (Base) -->
+            <path d="M 0 77 C 20 53, 50 53, 70 77 C 50 61, 20 61, 0 77 Z" fill="#ea6012"/>
+          </g>
+
+          <!-- Texto ENGECON -->
+          <text x="98" y="65" fill="#FFFFFF" font-family="'Montserrat', sans-serif" font-weight="900" font-size="58" letter-spacing="-1">ENGECON</text>
+          
+          <!-- Texto REFORMAS PREDIAIS -->
+          <text x="101" y="88" fill="#FFFFFF" font-family="'Montserrat', sans-serif" font-weight="700" font-size="13.5" letter-spacing="10.5">REFORMAS PREDIAIS</text>
+        </svg>
+      </div>
+      <div class="top-nav">
+        <a href="#" class="nav-item">INÍCIO</a>
+      </div>
+    </header>
+
+    <!-- Conteúdo Hero -->
+    <main class="hero-section">
+      
+      <!-- Coluna Principal (Esquerda) -->
+      <div class="hero-main">
+        <div class="tag-category">
+          <span class="dash">—</span> PORTAL DO CLIENTE
+        </div>
+
+        <h1 class="main-heading">
+          ACOMPANHE<br>
+          SUA OBRA<br>
+          <span class="highlight">RELATÓRIO</span><br>
+          <span class="highlight">SEMANAL DA</span><br>
+          <span class="highlight">SUA REFORMA</span>
+        </h1>
+
+        <p class="description">
+          CONSULTE O ANDAMENTO DA OBRA, ACOMPANHE O CRONOGRAMA, REGISTROS FOTOGRÁFICOS E ATUALIZAÇÕES SEMANAIS REALIZADAS PELA EQUIPE ENGECON.
+        </p>
+
+        <!-- Botão Principal -->
+        <div class="cta-wrapper">
+          <a href="https://drive.google.com/drive/folders/1kHNJVqpU_gnskDNYUnVtMh-wjWx7f-L0?usp=sharing" target="_blank" rel="noopener noreferrer" class="btn-primary">
+            <i class="ph ph-folder-simple"></i>
+            <span>VER RELATÓRIO SEMANAL</span>
+            <span class="arrow">→</span>
+          </a>
+        </div>
+
+        <!-- Rodapé de Apoio / Redes -->
+        <div class="hero-footer">
+          <div class="status-info">
+            <span class="orange-dot"></span>
+            <span>RELATÓRIOS ATUALIZADOS SEMANALMENTE</span>
+          </div>
+          
+          <div class="social-info">
+            <a href="https://www.instagram.com/engeconreformasprediais" target="_blank" rel="noopener noreferrer">
+              <i class="ph ph-instagram-logo"></i>
+              <span>@ENGECONREFORMASPREDIAIS</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card Flutuante (Direita) -->
+      <div class="hero-card-side">
+        <div class="side-card">
+          <span class="card-tag">ACESSO DO CLIENTE</span>
+          <h3 class="card-title">RELATÓRIO SEMANAL</h3>
+          <p class="card-desc">DOCUMENTOS, REGISTROS E ATUALIZAÇÕES DA OBRA.</p>
+        </div>
+      </div>
+
+    </main>
+
+  </div>
+
+</body>
+</html>
