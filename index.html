@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ENGECon — Portal do Cliente</title>
+  <title>ENGECON — Portal do Cliente</title>
   
   <!-- Fonte Montserrat -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -69,10 +69,11 @@
       margin-bottom: 2.5rem;
     }
 
-    .logo-svg {
+    .site-logo {
       height: 52px;
       width: auto;
       display: block;
+      object-fit: contain;
     }
 
     .top-nav .nav-item {
@@ -273,16 +274,7 @@
   <div class="page-wrapper">
     <header class="top-header">
       <div class="logo">
-        <svg class="logo-svg" viewBox="0 0 520 110" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <g transform="translate(10, 5)">
-            <path d="M 0 32 C 20 8, 50 8, 70 32 C 50 16, 20 16, 0 32 Z" fill="#ea6012"/>
-            <path d="M 0 47 C 20 23, 50 23, 70 47 C 50 31, 20 31, 0 47 Z" fill="#ea6012"/>
-            <path d="M 0 62 C 20 38, 50 38, 70 62 C 50 46, 20 46, 0 62 Z" fill="#ea6012"/>
-            <path d="M 0 77 C 20 53, 50 53, 70 77 C 50 61, 20 61, 0 77 Z" fill="#ea6012"/>
-          </g>
-          <text x="98" y="65" fill="#FFFFFF" font-family="'Montserrat', sans-serif" font-weight="900" font-size="58" letter-spacing="-1">ENGECON</text>
-          <text x="101" y="88" fill="#FFFFFF" font-family="'Montserrat', sans-serif" font-weight="700" font-size="13.5" letter-spacing="10.5">REFORMAS PREDIAIS</text>
-        </svg>
+        <img src="Logo azul1.png" alt="ENGECON Reformas Prediais" class="site-logo">
       </div>
       <div class="top-nav">
         <a href="#" class="nav-item">INÍCIO</a>
@@ -340,7 +332,7 @@
     </main>
   </div>
 
-  <!-- LÓGICA DE DIRECIONAMENTO DE TODAS AS 28 OBRAS -->
+  <!-- LÓGICA DE DIRECIONAMENTO DAS 28 OBRAS -->
   <script>
     const linksObras = {
       "estoril": "https://drive.google.com/drive/folders/1vzeJ_9EDWZugDRj8uBFWu50_HHWL9HGd?usp=sharing",
