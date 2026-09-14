@@ -62,7 +62,6 @@
       padding: 2.5rem 2rem;
     }
 
-    /* TOPO / HEADER */
     .top-header {
       display: flex;
       justify-content: space-between;
@@ -89,7 +88,6 @@
       opacity: 0.8;
     }
 
-    /* HERO CONTENT */
     .hero-section {
       display: flex;
       justify-content: space-between;
@@ -138,7 +136,6 @@
       text-transform: uppercase;
     }
 
-    /* BOTÃO PRINCIPAL */
     .cta-wrapper {
       margin-bottom: 2.5rem;
     }
@@ -169,7 +166,6 @@
       box-shadow: 0 6px 20px rgba(234, 96, 18, 0.5);
     }
 
-    /* RODAPÉ INFERIOR */
     .hero-footer {
       display: flex;
       flex-direction: column;
@@ -215,7 +211,6 @@
       color: var(--orange-brand);
     }
 
-    /* CARD DIREITO */
     .hero-card-side {
       padding-bottom: 2rem;
     }
@@ -254,36 +249,20 @@
       letter-spacing: 0.5px;
     }
 
-    /* RESPONSIVIDADE */
     @media (max-width: 900px) {
       .hero-section {
         flex-direction: column;
         align-items: flex-start;
         gap: 3rem;
       }
-
-      .main-heading {
-        font-size: 2.8rem;
-      }
-
-      .side-card {
-        width: 100%;
-      }
+      .main-heading { font-size: 2.8rem; }
+      .side-card { width: 100%; }
     }
 
     @media (max-width: 480px) {
-      .page-wrapper {
-        padding: 1.5rem 1.2rem;
-      }
-
-      .main-heading {
-        font-size: 2.2rem;
-      }
-
-      .btn-primary {
-        width: 100%;
-        justify-content: center;
-      }
+      .page-wrapper { padding: 1.5rem 1.2rem; }
+      .main-heading { font-size: 2.2rem; }
+      .btn-primary { width: 100%; justify-content: center; }
     }
   </style>
 </head>
@@ -292,27 +271,16 @@
   <div class="bg-overlay"></div>
 
   <div class="page-wrapper">
-    
-    <!-- Topo / Header -->
     <header class="top-header">
       <div class="logo">
-        <!-- LOGO OFICIAL ENGECON DESENHADA DIRETAMENTE VIA SVG NATIVO -->
         <svg class="logo-svg" viewBox="0 0 520 110" fill="none" xmlns="http://www.w3.org/2000/svg">
           <g transform="translate(10, 5)">
-            <!-- Arco 1 (Topo) -->
             <path d="M 0 32 C 20 8, 50 8, 70 32 C 50 16, 20 16, 0 32 Z" fill="#ea6012"/>
-            <!-- Arco 2 -->
             <path d="M 0 47 C 20 23, 50 23, 70 47 C 50 31, 20 31, 0 47 Z" fill="#ea6012"/>
-            <!-- Arco 3 -->
             <path d="M 0 62 C 20 38, 50 38, 70 62 C 50 46, 20 46, 0 62 Z" fill="#ea6012"/>
-            <!-- Arco 4 (Base) -->
             <path d="M 0 77 C 20 53, 50 53, 70 77 C 50 61, 20 61, 0 77 Z" fill="#ea6012"/>
           </g>
-
-          <!-- Texto ENGECON -->
           <text x="98" y="65" fill="#FFFFFF" font-family="'Montserrat', sans-serif" font-weight="900" font-size="58" letter-spacing="-1">ENGECON</text>
-          
-          <!-- Texto REFORMAS PREDIAIS -->
           <text x="101" y="88" fill="#FFFFFF" font-family="'Montserrat', sans-serif" font-weight="700" font-size="13.5" letter-spacing="10.5">REFORMAS PREDIAIS</text>
         </svg>
       </div>
@@ -321,12 +289,9 @@
       </div>
     </header>
 
-    <!-- Conteúdo Hero -->
     <main class="hero-section">
-      
-      <!-- Coluna Principal (Esquerda) -->
       <div class="hero-main">
-        <div class="tag-category">
+        <div class="tag-category" id="tagObra">
           <span class="dash">—</span> PORTAL DO CLIENTE
         </div>
 
@@ -342,16 +307,14 @@
           CONSULTE O ANDAMENTO DA OBRA, ACOMPANHE O CRONOGRAMA, REGISTROS FOTOGRÁFICOS E ATUALIZAÇÕES SEMANAIS REALIZADAS PELA EQUIPE ENGECON.
         </p>
 
-        <!-- Botão Principal -->
         <div class="cta-wrapper">
-          <a href="https://drive.google.com/drive/folders/1kHNJVqpU_gnskDNYUnVtMh-wjWx7f-L0?usp=sharing" target="_blank" rel="noopener noreferrer" class="btn-primary">
+          <a href="#" id="btnDriveLink" target="_blank" rel="noopener noreferrer" class="btn-primary">
             <i class="ph ph-folder-simple"></i>
             <span>VER RELATÓRIO SEMANAL</span>
             <span class="arrow">→</span>
           </a>
         </div>
 
-        <!-- Rodapé de Apoio / Redes -->
         <div class="hero-footer">
           <div class="status-info">
             <span class="orange-dot"></span>
@@ -367,7 +330,6 @@
         </div>
       </div>
 
-      <!-- Card Flutuante (Direita) -->
       <div class="hero-card-side">
         <div class="side-card">
           <span class="card-tag">ACESSO DO CLIENTE</span>
@@ -375,10 +337,62 @@
           <p class="card-desc">DOCUMENTOS, REGISTROS E ATUALIZAÇÕES DA OBRA.</p>
         </div>
       </div>
-
     </main>
-
   </div>
 
+  <!-- LÓGICA DE DIRECIONAMENTO DE TODAS AS 28 OBRAS -->
+  <script>
+    const linksObras = {
+      "estoril": "https://drive.google.com/drive/folders/1vzeJ_9EDWZugDRj8uBFWu50_HHWL9HGd?usp=sharing",
+      "ancoradouro": "https://drive.google.com/drive/folders/1Mxfp6uSUbm5C9lQtpsbafrLeztmUmSFx?usp=drive_link",
+      "olavo-bilac": "https://drive.google.com/drive/folders/1wpjcbwBzIlS9KxChHCDREUgUVC9JES-G?usp=drive_link",
+      "quinta-da-marinha": "https://drive.google.com/drive/folders/1WyPUTtLP1WBVd-EdUcdSUlcXdD6qKk-D?usp=drive_link",
+      "recanto-dos-sonhos": "https://drive.google.com/drive/folders/1X3Bro0eulXc2Nc3s1q-B5I90UyIqm-E_?usp=drive_link",
+      "villa-brunello": "https://drive.google.com/drive/folders/1X3Bro0eulXc2Nc3s1q-B5I90UyIqm-E_?usp=drive_link",
+      "porto-ingleses": "https://drive.google.com/drive/folders/16FFJOIUDZjbLTJgCFHdgc_fhlytXPPp7?usp=drive_link",
+      "hotel-castelmar": "https://drive.google.com/drive/folders/1Guix4Mbi8so5_WCY_dZBI9Kc_oKAGbqC?usp=drive_link",
+      "zimmermann": "https://drive.google.com/drive/folders/1eYBFN59O68lsLcyw7A9SyLsK7oB2nGbx?usp=drive_link",
+      "estudio-oceano": "https://drive.google.com/drive/folders/1m9OtJFrqt5953Zpe8_MKnbbi8M_vdyvY?usp=drive_link",
+      "ds-prime": "https://drive.google.com/drive/folders/1SH7a3KTBeFEUTJeBskFMZOOpQkkDWRSv?usp=drive_link",
+      "avos": "https://drive.google.com/drive/folders/1KZy7EZgKVh5oVcczA8B4nQ0-J9mCfeLS?usp=drive_link",
+      "hotel-intercity": "https://drive.google.com/drive/folders/1iEoZzSfSx1hW2JA2xhQmK5lFkEVgKWVS?usp=drive_link",
+      "tonatiuh": "https://drive.google.com/drive/folders/1_ray7I7u0gVOHfjpq55EA80gYYaSBuEX?usp=drive_link",
+      "fontainebleau": "https://drive.google.com/drive/folders/1NVspenFZNyemr1PK8ebnMPIa6Z3liUla?usp=drive_link",
+      "heitor-villa-lobos": "https://drive.google.com/drive/folders/1UNUlxj1fbJOc-8Mua2GuKi0kZ1zpRi3U?usp=drive_link",
+      "sun-towers": "https://drive.google.com/drive/folders/19GaXeZeWiJq-dP3eeXNNfhnmfuBpBpCw?usp=drive_link",
+      "augusto-dechamps": "https://drive.google.com/drive/folders/19GaXeZeWiJq-dP3eeXNNfhnmfuBpBpCw?usp=drive_link",
+      "liberal-center": "https://drive.google.com/drive/folders/1dFgOzMAdf3XwXuY1fKpUkN1Jun-xhfis?usp=drive_link",
+      "plaza-viena": "https://drive.google.com/drive/folders/1KNSdQTJ2cVRp9M6h63KFiieHDyjY7g4v?usp=drive_link",
+      "plaza-du-soleil": "https://drive.google.com/drive/folders/1Fk9EY0M5Rc4ZfG2L1Bs-Ab6aMX39Xeu_?usp=drive_link",
+      "presidente": "https://drive.google.com/drive/folders/1Zmev2GGMQFQ49JQlA_B50JrCxGnMt5xg?usp=drive_link",
+      "dolce-vitta": "https://drive.google.com/drive/folders/1XZBgktHdFMsN6BHS6U-yuRy6LhXJD3-C?usp=drive_link",
+      "francavilla": "https://drive.google.com/drive/folders/1RM7PV4pcmWBh4clHpDKFcNKFafdDChGx?usp=drive_link",
+      "link-koerich": "https://drive.google.com/drive/folders/1cCyGw8lDIdV_O0xIr6BCqgPcnAIKiJU3?usp=drive_link",
+      "adelina-daros": "https://drive.google.com/drive/folders/17G7ddnPEJrPZdKS1Ovr4RJ7sX91YWU9H?usp=drive_link",
+      "d-garden": "https://drive.google.com/drive/folders/1ovOuszTnrcM1K8HZiMDEtbSAGT44C8Qb?usp=drive_link",
+      "monte-bianco": "https://drive.google.com/drive/folders/1uWabGVgmzUAqn7rvaotJ_t1WrNUwsIc0?usp=drive_link"
+    };
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const obraParam = urlParams.get('obra');
+
+    const btnRelatorio = document.getElementById('btnDriveLink');
+    const tagObra = document.getElementById('tagObra');
+
+    if (obraParam && linksObras[obraParam.toLowerCase()]) {
+      const chaveObra = obraParam.toLowerCase();
+      btnRelatorio.href = linksObras[chaveObra];
+      
+      const nomeFormatado = obraParam.toUpperCase().replace(/-/g, ' ');
+      tagObra.innerHTML = `<span class="dash">—</span> PORTAL DO CLIENTE • <strong>${nomeFormatado}</strong>`;
+    } else {
+      btnRelatorio.addEventListener('click', (e) => {
+        if (btnRelatorio.getAttribute('href') === '#') {
+          e.preventDefault();
+          alert('Por favor, utilize o link exclusivo fornecido pela equipe ENGECON para o seu condomínio.');
+        }
+      });
+    }
+  </script>
 </body>
 </html>
